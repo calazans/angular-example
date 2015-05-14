@@ -1,0 +1,74 @@
+
+    <style>
+
+  body {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+  }
+    
+  #wrap {
+    width: 1100px;
+    margin: 0 auto;
+  }
+    
+  #external-events {
+    float: left;
+    width: 150px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+    text-align: left;
+  }
+    
+  #external-events h4 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-top: 1em;
+  }
+    
+  #external-events .fc-event {
+    margin: 10px 0;
+    cursor: pointer;
+  }
+    
+  #external-events p {
+    margin: 1.5em 0;
+    font-size: 11px;
+    color: #666;
+  }
+    
+  #external-events p input {
+    margin: 0;
+    vertical-align: middle;
+  }
+
+ 
+
+</style>
+</head>
+<div>
+    <h4>Draggable Events</h4>
+    <div id='external-events' ng-repeat="item in eventos"
+          data-drop="true" ng-model='eventos' 
+          data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=eventos])'}"  
+          jqyoui-droppable="{index: {{$index}}}">
+      
+      <div class='fc-event-inner' data-drag="true" 
+                ng-model="eventos" 
+                ng-hide="!item.title"                
+                data-jqyoui-options="{revert: 'invalid'}"  
+                jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" >{{item.title}}
+      </div>
+      
+      
+    </div>
+    <br/>
+    <br/>
+     <div class="calendar" ng-model="eventSources" 
+          calendar="myCalendar1" 
+          ui-calendar="uiConfig.calendar"
+          data-drop="true" 
+          jqyoui-droppable="{multiple:true,onDrop:'drop'}"></div>
+  </div>
