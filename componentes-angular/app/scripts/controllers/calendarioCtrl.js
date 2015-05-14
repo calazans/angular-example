@@ -1,5 +1,5 @@
 angular.module('componentesAngularApp')
-  .controller('CalendarioCtrl', function ($scope) {
+  .controller('CalendarioCtrl', function ($scope,uiCalendarConfig) {
 
   var date = new Date();
     var d = date.getDate();
@@ -12,6 +12,8 @@ angular.module('componentesAngularApp')
       {title:'Meu evento 2'},
       {title:'Meu evento 3'}
     ];
+
+
 
    $scope.eventSources=[];
 
@@ -34,24 +36,49 @@ angular.module('componentesAngularApp')
           console.log('hey, you dumped me :-(' , $scope.draggedTitle);
         };
 
+
+    var eventoAuxiliar=[];
+    var objetoAdicionado;
+    var dataSelecionado;
+        $scope.addEvento = function(){
+          console.log('passou');          
+          objetoAdicionado  = $scope.eventSources[1];
+          eventoAuxiliar[0].push({title:objetoAdicionado.title,start:dataSelecionado._d,end:dataSelecionado._d,allDay:false});
+          $scope.eventSources =  eventoAuxiliar;
+          eventoAuxiliar=[];
+          $scope.myCalendar1;
+          
+          uiCalendarConfig.calendars['myCalendar1'].fullCalendar('render');
+          
+        };
+
+
     $scope.uiConfig = {
       calendar:{
         height: 450,
         editable: true,
+        ignoreTimezone: false,
+        //timezone: 'America/Sao_Paulo',
         droppable: true,
          drop: function (date, allDay, jsEvent, ui) {
           console.log($scope.eventSources);
          // $scope.eventSources[0].push({title:ui.helper.context.outerText,start:date,allDay:true});
           //console.log(ui.helper.context);
           console.log($scope.eventSources[0]);
+          dataSelecionado = date;
+          eventoAuxiliar[0] = $scope.eventSources[0];
+
+          ui.calendar.getCalendar().render();
+
           
-          console.log(uiCalendarConfig.calendars);
+          
+          //console.log(uiCalendarConfig.calendars);
           //$scope.myCalendar1.fullCalendar('render');
           //uiCalendarConfig.calendars['myCalendar1'].fullCalendar('render');
         },
         header:{
-          left: 'title',
-          center: '',
+         left: 'month agendaWeek agendaDay',
+          center: 'title',
           right: 'today prev,next'
         }
       },
