@@ -23,6 +23,7 @@ angular
   		
   		$stateProvider.state('home',{url:'/home',templateUrl:'views/main.html',controller:'MainCtrl'});
       $stateProvider.state('calendario',{url:'/calendario',templateUrl:'views/calendario.html',controller:'CalendarioCtrl'});
+      $stateProvider.state('checklist',{url:'/checklist',templateUrl:'views/checkboxList.html',controller:'CheckListCtrl'});
   		$urlRouterProvider.otherwise('home');
   		
   });
