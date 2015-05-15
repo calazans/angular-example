@@ -15,10 +15,31 @@ angular.module('componentesAngularApp')
 
   	$scope.listaSelecionado=[{nome:'Material 8',valor:1}];
 
-  	$scope.arrumarLista = function(){
-
-  		//$scope.listaSelecionado= JSON.stringify($scope.listaSelecionado);
+  	$scope.foiMarcado = function( nome){
+       var tem = false;
+            for(var i=0 ; i < $scope.listaSelecionado.length; i++) {
+              if($scope.listaSelecionado[i].nome == nome){
+                tem = true;
+              }
+            }
+            return tem;
+  		
   	};
+
+    $scope.sincronizar= function(marcado,item) {
+      if(marcado){
+        // add item
+        $scope.listaSelecionado.push(item);
+      } else {
+        // remove item
+      for(var i=0 ; i < $scope.listaSelecionado.length; i++) {
+        if($scope.listaSelecionado[i].nome == item.nome){
+          $scope.listaSelecionado.splice(i,1);
+        }
+      }      
+    }
+
+    };
 
 
   $scope.isChecked = function(id){

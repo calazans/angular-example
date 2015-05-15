@@ -42,11 +42,13 @@ angular.module('componentesAngularApp')
     var dataSelecionado;
         $scope.addEvento = function(){
           console.log('passou');          
-          objetoAdicionado  = $scope.eventSources[1];
-          eventoAuxiliar[0].push({title:objetoAdicionado.title,start:dataSelecionado._d,end:dataSelecionado._d,allDay:false});
-          $scope.eventSources =  eventoAuxiliar;
-          eventoAuxiliar=[];
-          $scope.myCalendar1;
+          objetoAdicionado  = $scope.eventSources.splice(1,1);
+          var  dataInicio = new Date();          
+          dataInicio.setUTCDate(dataSelecionado._d.getDate()+1);
+          dataInicio.setUTCMonth(dataSelecionado._d.getMonth());
+          dataInicio.setUTCFullYear(dataSelecionado._d.getFullYear());
+          dataInicio.setUTCHours(24);
+          $scope.eventSources[0].push({title:objetoAdicionado[0].title,start:dataInicio,end:dataInicio,allDay:false});          
           
           uiCalendarConfig.calendars['myCalendar1'].fullCalendar('render');
           
@@ -62,27 +64,21 @@ angular.module('componentesAngularApp')
         droppable: true,
          drop: function (date, allDay, jsEvent, ui) {
           console.log($scope.eventSources);
-         // $scope.eventSources[0].push({title:ui.helper.context.outerText,start:date,allDay:true});
-          //console.log(ui.helper.context);
-          console.log($scope.eventSources[0]);
+         
+          
           dataSelecionado = date;
           eventoAuxiliar[0] = $scope.eventSources[0];
 
-          ui.calendar.getCalendar().render();
+         
+           uiCalendarConfig.calendars['myCalendar1'].fullCalendar('render');
 
-          
-          
-          //console.log(uiCalendarConfig.calendars);
-          //$scope.myCalendar1.fullCalendar('render');
-          //uiCalendarConfig.calendars['myCalendar1'].fullCalendar('render');
         },
         header:{
          left: 'month agendaWeek agendaDay',
           center: 'title',
           right: 'today prev,next'
         }
-      },
-      eventRender: $scope.eventRender
+      }
     };
 
     $scope.eventSources = [$scope.events];

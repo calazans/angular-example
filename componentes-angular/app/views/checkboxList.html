@@ -1,7 +1,9 @@
 <div class="row">
 	<div class="col-md-8">
 		<label ng-repeat="item in lista">
-			<input type="checkbox" ng-model="listaSelecionado[$index]" ng-change="arrumarLista()" ng-true-value="'{{item}}'">&nbsp;{{item.nome}}&nbsp;&nbsp;&nbsp;
+			<input type="checkbox" ng-model="marcado" 
+				   ng-change="sincronizar(marcado,item)" 
+				   ng-checked="foiMarcado(item.nome)" />&nbsp;{{item.nome}}&nbsp;&nbsp;&nbsp;
 		</label>
 	</div>
 	<br/>
@@ -11,4 +13,8 @@
 	   <p ng-repeat="item in allOptions" class="item" id="{{item.id}}">
       		{{item.id}} <input type="checkbox" ng-change="sync(bool, item)" ng-model="bool" ng-checked="isChecked(item.id)">
   		</p>
+
+
+  		<br/>
+	 <pre>{{data | json}}</pre>
 </div>
