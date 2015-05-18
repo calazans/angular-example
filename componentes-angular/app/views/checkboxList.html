@@ -18,3 +18,15 @@
   		<br/>
 	 <pre>{{data | json}}</pre>
 </div>
+<div ng-controller="CheckCtrl">
+
+	<p ng-repeat="permission in allPermissions">
+			<input type="checkbox" ng-checked="selectedPermissions.containsObjectWithProperty('id', permission.id)" ng-click="toggleSelection(permission)" />
+			{{permission.name}}
+		</p>
+		<hr />
+	
+        <p><b>All:</b> | <span ng-repeat="permission in allPermissions">{{permission.name}} | </span></p>
+        <p><b>Selected:</b> | <span ng-repeat="permission in selectedPermissions">{{permission.name}} | </span></p>
+
+</div>
