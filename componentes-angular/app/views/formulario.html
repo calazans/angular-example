@@ -1,2 +1,16 @@
-<div class="well">
+<div class="container">
+		<div class="well" ng-controller="DataCtrl">
+			<form ng-show="!success" name="form" role="form" novalidate		show-validation class="form-inline">
+				<div class="form-group">
+					<label>Periodo</label><br/>
+					<input type="text" datepicker-popup="dd/MM/yyyy" name="1" close-on-date-selection='false' ng-model='activeDate' 
+ 						ng-click='opened=true' is-open='opened'   select-range='false' close-text="Fechar" />
+ 					<label>à</label>
+ 					<input datepicker-popup name="2" close-on-date-selection='false' ng-model='activeDate2' 
+ 						ng-click='opened2=true' is-open='opened2'  select-range='false' close-text="Fechar" />
+
+				</div>
+
+			</form>
+		</div>
 </div>
