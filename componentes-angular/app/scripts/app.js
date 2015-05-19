@@ -63,6 +63,7 @@ angular
       $stateProvider.state('calendario',{url:'/calendario',templateUrl:'views/calendario.html',controller:'CalendarioCtrl'});
       $stateProvider.state('checklist',{url:'/checklist',templateUrl:'views/checkboxList.html',controller:'CheckListCtrl'});
       $stateProvider.state('data',{url:'/datepicker',templateUrl:'views/datepicker.html',controller:'DataCtrl'});
+      $stateProvider.state('formulario',{url:'/formulario',templateUrl:'views/formulario.html',controller:'FormCtrl'});
   		$urlRouterProvider.otherwise('home');
   		
   });
