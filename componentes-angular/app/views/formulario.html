@@ -1,16 +1,27 @@
 <div class="container">
-		<div class="well" ng-controller="DataCtrl">
+		<div class="well" ng-controller="FormCtrl">
 			<form ng-show="!success" name="form" role="form" novalidate		show-validation class="form-inline">
 				<div class="form-group">
 					<label>Periodo</label><br/>
-					<input type="text" datepicker-popup="dd/MM/yyyy" name="1" close-on-date-selection='false' ng-model='activeDate' 
+					<input type="text" datepicker-popup="dd/MM/yyyy" name="1" required close-on-date-selection='false' ng-model='activeDate' 
  						ng-click='opened=true' is-open='opened'   select-range='false' close-text="Fechar" />
  					<label>à</label>
- 					<input datepicker-popup name="2" close-on-date-selection='false' ng-model='activeDate2' 
+ 					<input datepicker-popup name="2" required close-on-date-selection='false' ng-model='activeDate2' 
  						ng-click='opened2=true' is-open='opened2'  select-range='false' close-text="Fechar" />
-
+				
 				</div>
-
+				<div class="clear-fix"/>
+				<div class="form-group">
+					<timepicker ng-model="horaSelecionada" ng-change="validarHora(form)" required  name= "horaSelecionada"/>
+					<div ng-show="form.horaSelecionada.$dirty && form.horaSelecionada.$invalid">
+	                  <p ng-show="form.horaSelecionada.$error.horario" class="help-block">Erro na hora selecionada</p>
+	                  <p ng-show="form.horaSelecionada.$error.required" class="help-block">Campo obrigatorio</p>
+	                </div>
+				</div>
+				<div class="clear-fix"/>
+				<div>
+					<input type="submit" class="btn btn-primary" value="Enviar" ng-disabled="form.$invalid">
+				</div>
 			</form>
 		</div>
 </div>
