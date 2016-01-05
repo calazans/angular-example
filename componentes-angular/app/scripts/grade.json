@@ -1,0 +1,33 @@
+{
+	"idGrade":1,
+	"idCurso":3,
+	"periodoInicio":new Date(),
+	"periodoFim":new Date(),
+	"horaInicio":new Date(),
+	"horaFim":new Date(),
+	"quantidadeMateriaPorDia":1,
+	"turno":1,
+	"nomeTurno":"Matutino",
+	"numeroTurma":"CC2015M",
+	"diasAula":[ 
+		{
+			"idDiaAulaJava":1,
+			"idDiaAulaJs":1,
+			"data": new Date(),
+			"materias":[
+				{
+					"materia":"Nome Materia",
+					"idMateria" :1,
+					"horaInicio": new Date(),
+					"horaFim": new Date(),
+					"idProfessor": 1,
+					"nomeProfessor":"NomeProfessor"
+				}
+			]
+			
+
+
+		}
+	]
+
+}
