@@ -1,0 +1,1 @@
+angular.module('datatable.example',['smart-table']);

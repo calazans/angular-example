@@ -1,0 +1,22 @@
+{
+  "name": "datable-component",
+  "description": "example of datables components",
+  "main": "gulpfile.js",
+  "authors": [
+    "Diogo <calazans.diogo@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/calazans/angular-example",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-smart-table": "^2.1.11",
+    "angular": "angularjs#^1.7.1"
+  }
+}
