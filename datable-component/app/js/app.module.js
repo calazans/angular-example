@@ -1,1 +1,1 @@
-angular.module('datatable.example',['smart-table']);
+angular.module('app.core',['smart-table']);
