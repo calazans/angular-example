@@ -1,0 +1,25 @@
+{
+  "name": "tree-folder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.8.4",
+    "gulp": "^4.0.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "connect": "^3.6.6",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-uglify": "^3.0.1",
+    "server-static": "^2.0.5",
+    "wiredep": "^4.0.0"
+  }
+}
