@@ -1,11 +1,16 @@
 <html>
 <head></head>
-<body>
+<body ng-app="appCore">
+    <div  ng-controller="ControllerCtrl as vm" >
+        <label>{{vm.nome}}</label>
+    </div>
 
 <!-- bower:js -->
 <!-- endbower -->
 
-    <script src="/dist/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js"></script>
+<script src="js/app.module.js"></script>
+<script src="js/app.controller.js"></script>
 </body>
 
 </html>
